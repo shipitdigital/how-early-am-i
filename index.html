@@ -256,12 +256,24 @@ canvas{display:block;border-radius:6px;background:#141414}
 }
 
 @media(max-width:768px){
-  .page{padding:32px 20px 16px;justify-content:flex-start}
-  .main{flex-direction:column;gap:24px;margin-top:16px}
+  .page{padding:24px 16px 12px;justify-content:flex-start}
+  .main{flex-direction:column;gap:16px;margin-top:8px}
   .hero{min-width:auto}
-  .chart-side{align-items:center}
-  .bottom-bar{padding:12px 0 16px}
-  .bottom-right{margin-top:4px}
+  .hero-line1{font-size:28px}
+  .hero-line2{font-size:18px;margin-top:6px}
+  .annotations{margin-top:24px;gap:3px}
+  .annotation-pct{font-size:16px}
+  .annotation-label{font-size:12px}
+  .annotation-ctx{font-size:10px}
+  .hero-meta-block{margin-top:28px}
+  .live-line{font-size:12px}
+  .live-sub{font-size:10px}
+  .notify-trigger{font-size:11px;margin-top:10px}
+  .chart-side{align-items:center;width:100%}
+  .chart-label{font-size:11px}
+  canvas{width:100% !important;height:auto !important}
+  .bottom-bar{padding:16px 0 12px;gap:10px;font-size:10px}
+  .bottom-byline{display:none}
 }
 </style>
 </head>
@@ -709,15 +721,29 @@ document.getElementById('notify-submit').addEventListener('click', function() {
     setTimeout(() => { document.getElementById('notify-email').style.borderColor = '#333'; }, 1500);
     return;
   }
-  const emails = JSON.parse(localStorage.getItem('notify-emails') || '[]');
-  emails.push({ email, date: new Date().toISOString() });
-  localStorage.setItem('notify-emails', JSON.stringify(emails));
-  this.textContent = "You're in";
-  this.classList.add('done');
-  document.getElementById('notify-email').disabled = true;
-  setTimeout(() => {
-    document.getElementById('notify-overlay').classList.remove('open');
-  }, 1200);
+  const btn = this;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  fetch('/api/notify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email })
+  }).then(r => {
+    if (!r.ok) throw new Error('failed');
+    return r;
+  }).catch(() => {
+    // Fallback: localStorage if worker not deployed yet
+    const list = JSON.parse(localStorage.getItem('notify-emails') || '[]');
+    list.push({ email, date: new Date().toISOString() });
+    localStorage.setItem('notify-emails', JSON.stringify(list));
+  }).finally(() => {
+    btn.textContent = "You're in";
+    btn.classList.add('done');
+    document.getElementById('notify-email').disabled = true;
+    setTimeout(() => {
+      document.getElementById('notify-overlay').classList.remove('open');
+    }, 1200);
+  });
 });
 
 // Share to X

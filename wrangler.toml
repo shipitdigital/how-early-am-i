@@ -1,0 +1,6 @@
+name = "how-early-am-i"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "NOTIFY_EMAILS"
+id = "4b2e9a7a72ec455281905a834713f9a2"
