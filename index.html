@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>83% of Humanity Has Never Touched AI</title>
+<meta property="og:title" content="83% of humanity has never touched AI.">
+<meta property="og:description" content="Each dot is 3.3 million people. You are early. Based on 16 primary sources.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="83% of humanity has never touched AI.">
+<meta name="twitter:description" content="Each dot is 3.3 million people. You are early. Based on 16 primary sources.">
+<meta property="og:image" content="og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow-x:hidden}
+
+body{
+  background:#0c0c0c;
+  color:#f0f0f0;
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+.page{
+  max-width:1040px;
+  margin:0 auto;
+  padding:0 40px;
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.main{display:flex;gap:48px;align-items:center}
+
+/* Hero */
+.hero{flex:1;min-width:280px}
+.hero-line1{
+  font-family:'Instrument Serif',Georgia,serif;
+  font-size:clamp(28px,3.8vw,42px);
+  font-weight:400;line-height:1.15;
+  color:#fff;letter-spacing:-0.5px;
+}
+.hero-line2{
+  font-family:'Instrument Serif',Georgia,serif;
+  font-size:clamp(18px,2.5vw,26px);
+  font-weight:400;color:#777;
+  margin-top:10px;line-height:1.4;
+  opacity:0;transform:translateY(6px);
+  transition:opacity 0.6s ease,transform 0.6s ease;
+}
+.hero-line2.visible{opacity:1;transform:translateY(0)}
+
+/* Live data block */
+.live-block{margin-top:24px}
+.live-line{
+  display:flex;align-items:center;gap:6px;
+  font-size:13px;color:#666;
+}
+.live-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,0.7);
+  position:relative;flex-shrink:0;
+}
+.live-dot::after{
+  content:'';position:absolute;inset:-5px;
+  border-radius:50%;
+  border:1.5px solid rgba(255,255,255,0.3);
+  opacity:0;animation:pulse 2s ease-out infinite;
+}
+@keyframes pulse{
+  0%{opacity:0.8;transform:scale(0.6)}
+  100%{opacity:0;transform:scale(1.4)}
+}
+.live-line .sources-link{
+  color:#666;cursor:pointer;
+  border-bottom:1px solid #333;
+  transition:color 0.2s,border-color 0.2s;
+}
+.live-line .sources-link:hover{color:#999;border-color:#666}
+
+.live-sub{
+  font-size:11px;color:#3a3a3a;
+  margin-top:4px;padding-left:14px;
+  line-height:1.5;
+}
+
+/* Notify trigger */
+.notify-trigger{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:14px;cursor:pointer;
+  font-size:12px;color:#555;
+  transition:color 0.2s;
+}
+.notify-trigger:hover{color:#999}
+.notify-trigger svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5}
+
+/* Chart */
+.chart-side{flex-shrink:0;display:flex;flex-direction:column}
+.chart-label{
+  font-size:13px;color:#555;
+  margin-bottom:8px;
+  display:flex;align-items:center;gap:6px;
+}
+.chart-label-dot{width:7px;height:7px;border-radius:1.5px;background:#555}
+canvas{display:block;border-radius:6px;background:#141414}
+
+.annotations{display:flex;flex-direction:column;gap:4px;margin-top:56px}
+.hero-meta-block{margin-top:64px}
+.annotation{display:flex;align-items:center;gap:6px;cursor:default;transition:opacity 0.2s}
+.annotation:hover{opacity:1 !important}
+.annotation-line{width:14px;height:2px;border-radius:1px;flex-shrink:0}
+.annotation-pct{font-weight:700;font-size:20px}
+.annotation-label{font-size:14px;color:#777;margin-left:3px}
+.annotation-ctx{font-size:12px;color:#444;margin-left:2px}
+
+/* Bottom bar */
+.bottom-bar{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  font-size:11px;color:#555;
+  padding:40px 0 16px;
+  flex-wrap:wrap;
+}
+.bottom-bar span{white-space:nowrap}
+.bottom-sep{color:#333}
+
+.share-btn{
+  color:#666;cursor:pointer;
+  border-bottom:1px solid transparent;
+  transition:color 0.2s,border-color 0.2s,transform 0.15s;
+  user-select:none;
+  display:inline-flex;align-items:center;gap:4px;
+}
+.share-btn:hover{color:#999;border-bottom-color:#777}
+.share-btn svg{width:11px;height:11px;fill:currentColor}
+
+.copy-btn{
+  color:#666;cursor:pointer;
+  border-bottom:1px solid transparent;
+  transition:color 0.2s,border-color 0.2s,transform 0.15s;
+  user-select:none;
+}
+.copy-btn:hover{color:#999;border-bottom-color:#777}
+.copy-btn.copied{color:#34d399;border-bottom-color:#34d399}
+
+.bottom-byline{color:#666}
+.bottom-byline a{
+  color:#666;text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:color 0.2s,border-color 0.2s;
+}
+.bottom-byline a:hover{color:#999;border-bottom-color:#777}
+
+/* Dot tooltip */
+.dot-tip{
+  position:fixed;font-size:12px;color:#aaa;
+  pointer-events:none;opacity:0;transition:opacity 0.1s;
+  z-index:100;background:rgba(20,20,20,0.92);
+  padding:6px 10px;max-width:280px;border-radius:4px;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+
+/* Overlays - shared style */
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  z-index:200;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.25s ease;
+}
+.overlay.open{opacity:1;pointer-events:auto}
+.overlay-panel{
+  background:#141414;border:1px solid #222;
+  border-radius:8px;padding:24px 28px;
+  max-width:680px;width:90vw;max-height:70vh;overflow-y:auto;
+  transform:translateY(8px);transition:transform 0.25s ease;
+}
+.overlay.open .overlay-panel{transform:translateY(0)}
+.overlay-header{
+  display:flex;justify-content:space-between;
+  align-items:center;margin-bottom:16px;
+}
+.overlay-title{font-size:14px;font-weight:500;color:#999}
+.overlay-close{
+  font-size:18px;color:#555;cursor:pointer;
+  width:28px;height:28px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:4px;transition:background 0.15s,color 0.15s;
+  line-height:1;
+}
+.overlay-close:hover{background:#222;color:#999}
+
+/* Sources */
+.source-group-label{
+  font-size:9px;color:#555;text-transform:uppercase;
+  letter-spacing:1px;font-weight:500;
+  margin-top:14px;margin-bottom:5px;
+}
+.source-group-label:first-child{margin-top:0}
+.source-row{
+  font-size:10px;color:#555;line-height:1.8;
+  display:flex;gap:6px;align-items:baseline;
+}
+.source-pill{
+  font-size:8px;font-weight:600;padding:1px 4px;
+  border-radius:2px;flex-shrink:0;
+  text-transform:uppercase;letter-spacing:0.4px;
+}
+.pill-sec{background:#14532d;color:#6ee7b7}
+.pill-official{background:#1e3a5f;color:#93c5fd}
+.pill-research{background:#78350f;color:#fcd34d}
+.source-row a{color:#4a7a99;text-decoration:none}
+.source-row a:hover{text-decoration:underline}
+
+/* Notify modal */
+.notify-panel{max-width:400px;text-align:center;padding:32px 36px}
+.notify-panel-title{
+  font-family:'Instrument Serif',Georgia,serif;
+  font-size:22px;color:#fff;margin-bottom:6px;
+}
+.notify-panel-sub{font-size:13px;color:#555;margin-bottom:24px;line-height:1.5}
+.notify-input{
+  background:#0c0c0c;border:1px solid #333;border-radius:4px;
+  padding:10px 14px;width:100%;
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  font-size:14px;color:#ccc;outline:none;
+  transition:border-color 0.2s;
+  margin-bottom:12px;
+}
+.notify-input:focus{border-color:#555}
+.notify-input::placeholder{color:#333}
+.notify-submit{
+  background:#fff;border:none;border-radius:4px;
+  padding:10px 24px;width:100%;
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  font-size:13px;font-weight:500;color:#0c0c0c;
+  cursor:pointer;transition:opacity 0.2s;
+}
+.notify-submit:hover{opacity:0.85}
+.notify-submit.done{background:#34d399;pointer-events:none}
+.notify-fine{font-size:10px;color:#333;margin-top:12px}
+
+.sr-only{
+  position:absolute;width:1px;height:1px;
+  padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);border:0;
+}
+
+@media(max-width:768px){
+  .page{padding:32px 20px 16px;justify-content:flex-start}
+  .main{flex-direction:column;gap:24px;margin-top:16px}
+  .hero{min-width:auto}
+  .chart-side{align-items:center}
+  .bottom-bar{padding:12px 0 16px}
+  .bottom-right{margin-top:4px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="main">
+    <div class="hero">
+      <div class="hero-line1" id="hero1">83% of humanity has never touched AI.</div>
+      <div class="hero-line2" id="hero2">You are early.</div>
+
+      <div class="annotations" id="annotations"></div>
+
+      <div class="hero-meta-block">
+        <div class="live-block">
+          <div class="live-line">
+            <span class="live-dot"></span>
+            <span>Live data based on <span class="sources-link" id="sources-trigger">16 primary sources</span></span>
+          </div>
+          <div class="live-sub">including SEC filings and institutional research.</div>
+        </div>
+
+        <div class="notify-trigger" id="notify-trigger">
+          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          These numbers will change. Notify me.
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-side">
+      <div class="chart-label" id="chart-label">
+        <span class="chart-label-dot"></span>
+        <span>Each dot = ~3.3 million people</span>
+      </div>
+      <canvas id="chart" role="img" aria-label="Waffle chart showing global AI adoption."></canvas>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <span class="share-btn" id="share-x">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Share to X
+    </span>
+    <span class="bottom-sep">·</span>
+    <span class="copy-btn" id="copy-btn">Copy link</span>
+    <span class="bottom-sep">·</span>
+    <span class="bottom-byline">I make things like this. <a href="https://x.com/K3_ABHI" target="_blank" rel="noopener">→ @k3_abhi</a></span>
+  </div>
+
+  <table class="sr-only" aria-label="AI adoption data">
+    <thead><tr><th>Tier</th><th>Percentage</th><th>Population</th></tr></thead>
+    <tbody id="sr-tbody"></tbody>
+  </table>
+</div>
+
+<!-- Sources overlay -->
+<div class="overlay" id="sources-overlay">
+  <div class="overlay-panel">
+    <div class="overlay-header">
+      <span class="overlay-title" id="sources-title">Sources</span>
+      <span class="overlay-close" id="sources-close">&times;</span>
+    </div>
+    <div id="sources-inner"></div>
+  </div>
+</div>
+
+<!-- Notify overlay -->
+<div class="overlay" id="notify-overlay">
+  <div class="overlay-panel notify-panel">
+    <span class="overlay-close" id="notify-close" style="position:absolute;top:12px;right:12px">&times;</span>
+    <div class="notify-panel-title">These numbers will change.</div>
+    <div class="notify-panel-sub">Get notified when global AI adoption data shifts. No spam, just data.</div>
+    <input class="notify-input" id="notify-email" type="email" placeholder="your@email.com">
+    <button class="notify-submit" id="notify-submit">Notify me</button>
+    <div class="notify-fine">Unsubscribe anytime. Data updates quarterly.</div>
+  </div>
+</div>
+
+<div class="dot-tip" id="dot-tip"></div>
+
+<script>
+const COLS = 50, ROWS = 50, TOTAL = COLS * ROWS;
+const canvas = document.getElementById('chart');
+const ctx = canvas.getContext('2d');
+const dotTip = document.getElementById('dot-tip');
+
+const dpr = window.devicePixelRatio || 1;
+const dotSize = 9, gap = 1, cellSize = dotSize + gap, padding = 10;
+const w = COLS * cellSize + padding * 2;
+const h = ROWS * cellSize + padding * 2;
+
+canvas.width = w * dpr;
+canvas.height = h * dpr;
+canvas.style.width = w + 'px';
+canvas.style.height = h + 'px';
+ctx.scale(dpr, dpr);
+
+let dotColors = [], dotTierIndex = [], tierData = [], allSources = [];
+let worldPop = 8100000000;
+
+const TIER_COLORS = {
+  never_used: '#2a2a2a',
+  free_chatbot: '#34d399',
+  paid_subscriber: '#fb923c',
+  coding_scaffold: '#f87171'
+};
+
+const CRED_PILLS = {
+  1: { cls: 'pill-sec', label: 'SEC' },
+  2: { cls: 'pill-official', label: 'Official' },
+  3: { cls: 'pill-research', label: 'Research' }
+};
+
+function formatPop(n, precise) {
+  if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B';
+  if (n >= 1e6) return (n / 1e6).toFixed(precise ? 1 : 0) + 'M';
+  if (n >= 1e3) return (n / 1e3).toFixed(0) + 'K';
+  return n.toString();
+}
+
+function buildPage(data) {
+  tierData = data.tiers;
+  allSources = data.sources;
+  worldPop = data.meta.world_population;
+  const popPerDot = worldPop / TOTAL;
+  const neverPct = data.tiers.find(t => t.id === 'never_used')?.percent || 83;
+
+  document.getElementById('hero1').textContent =
+    `${Math.round(neverPct)}% of humanity has never touched AI.`;
+  document.getElementById('hero2').textContent = 'You are early.';
+
+  // Update sources link text
+  document.getElementById('sources-trigger').textContent =
+    `${data.sources.length} primary sources`;
+
+  setTimeout(() => document.getElementById('hero2').classList.add('visible'), 600);
+
+  document.getElementById('chart-label').querySelector('span:last-child').textContent =
+    `Each dot = ~${formatPop(Math.round(popPerDot), true)} people`;
+
+  const sortedTiers = [...data.tiers].sort((a, b) => a.percent - b.percent);
+  const neverUsed = sortedTiers.find(t => t.id === 'never_used');
+  const colorTiers = sortedTiers.filter(t => t.id !== 'never_used');
+
+  dotColors = new Array(TOTAL);
+  dotTierIndex = new Array(TOTAL);
+  let idx = 0;
+
+  for (const tier of colorTiers) {
+    const count = Math.max(1, Math.round(TOTAL * (tier.percent / 100)));
+    const tierIdx = data.tiers.indexOf(tier);
+    const color = TIER_COLORS[tier.id] || tier.color;
+    for (let i = 0; i < count && idx < TOTAL; i++) {
+      dotColors[idx] = color;
+      dotTierIndex[idx] = tierIdx;
+      idx++;
+    }
+  }
+  const neverIdx = data.tiers.indexOf(neverUsed);
+  while (idx < TOTAL) {
+    dotColors[idx] = TIER_COLORS.never_used;
+    dotTierIndex[idx] = neverIdx;
+    idx++;
+  }
+
+  buildTierDotIndices();
+
+  const TIER_DISPLAY = {
+    free_chatbot: { label: 'Asked AI a question', ctx: 'free ChatGPT, Gemini, Claude' },
+    paid_subscriber: { label: 'Pays for AI', ctx: '$20/mo ChatGPT Plus, Claude Pro' },
+    coding_scaffold: { label: 'Builds with AI', ctx: 'Copilot, Cursor, Claude Code' }
+  };
+
+  const annoEl = document.getElementById('annotations');
+  annoEl.innerHTML = '';
+  for (const tier of data.tiers.filter(t => t.id !== 'never_used')) {
+    const color = TIER_COLORS[tier.id] || tier.color;
+    const display = TIER_DISPLAY[tier.id] || { label: tier.label, ctx: '' };
+    const div = document.createElement('div');
+    div.className = 'annotation';
+    div.dataset.tierId = tier.id;
+    div.innerHTML = `
+      <div class="annotation-line" style="background:${color}"></div>
+      <span class="annotation-pct" style="color:${color}">${tier.percent}%</span>
+      <span class="annotation-label">${display.label}</span>
+      ${display.ctx ? `<span class="annotation-ctx">(${display.ctx})</span>` : ''}
+    `;
+    annoEl.appendChild(div);
+  }
+
+  // Sources overlay
+  document.getElementById('sources-title').textContent =
+    `${data.sources.length} Primary Sources`;
+  const innerEl = document.getElementById('sources-inner');
+  innerEl.innerHTML = '';
+
+  for (const tier of data.tiers) {
+    const tierSources = data.sources.filter(s => s.tier_id === tier.id);
+    if (!tierSources.length) continue;
+    const label = document.createElement('div');
+    label.className = 'source-group-label';
+    label.textContent = tier.label;
+    innerEl.appendChild(label);
+
+    for (const src of tierSources) {
+      const pill = CRED_PILLS[src.credibility] || CRED_PILLS[3];
+      const val = src.value > 1000 ? formatPop(src.value) : src.value;
+      const row = document.createElement('div');
+      row.className = 'source-row';
+      row.innerHTML = `
+        <span class="source-pill ${pill.cls}">${pill.label}</span>
+        <span style="color:#777;min-width:80px">${src.tool}</span>
+        <span>${val}</span>
+        <span style="color:#333">&middot;</span>
+        ${src.source_url ? `<a href="${src.source_url}" target="_blank" rel="noopener">${src.source}</a>` : `<span>${src.source}</span>`}
+        <span style="color:#333">${src.source_date.slice(0,7)}</span>
+      `;
+      innerEl.appendChild(row);
+    }
+  }
+
+  const tbody = document.getElementById('sr-tbody');
+  tbody.innerHTML = '';
+  for (const tier of data.tiers) {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${tier.label}</td><td>${tier.percent}%</td><td>${formatPop(tier.population)}</td>`;
+    tbody.appendChild(row);
+  }
+}
+
+// === ANIMATION ===
+const PHASE_TIMING = [
+  { start: 0,    end: 500,  tier: 'all_gray' },
+  { start: 700,  end: 1400, tier: 'free_chatbot' },
+  { start: 1500, end: 1800, tier: 'paid_subscriber' },
+  { start: 1900, end: 2100, tier: 'coding_scaffold' },
+];
+const ANIM_END = 2200;
+
+let tierDotIndices = {};
+function buildTierDotIndices() {
+  tierDotIndices = {};
+  for (let i = 0; i < TOTAL; i++) {
+    const tier = tierData[dotTierIndex[i]];
+    if (!tier || tier.id === 'never_used') continue;
+    if (!tierDotIndices[tier.id]) tierDotIndices[tier.id] = [];
+    tierDotIndices[tier.id].push(i);
+  }
+}
+
+let animStart = null, animDone = false;
+
+function getPhaseProgress(elapsed, phase) {
+  if (elapsed < phase.start) return 0;
+  if (elapsed >= phase.end) return 1;
+  return (elapsed - phase.start) / (phase.end - phase.start);
+}
+
+function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+function getDotTransition(dotIdx, total, progress) {
+  if (progress <= 0) return 0;
+  if (progress >= 1) return 1;
+  const pos = dotIdx / total;
+  const overlap = 0.15;
+  const start = pos * (1 - overlap);
+  const end = start + overlap;
+  if (progress < start) return 0;
+  if (progress >= end) return 1;
+  return (progress - start) / overlap;
+}
+
+function drawFrame(timestamp) {
+  if (!animStart) animStart = timestamp;
+  const elapsed = timestamp - animStart;
+
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = '#141414';
+  ctx.beginPath(); ctx.roundRect(0, 0, w, h, 6); ctx.fill();
+
+  const grayProgress = easeOut(getPhaseProgress(elapsed, PHASE_TIMING[0]));
+  const grayCount = Math.floor(grayProgress * TOTAL);
+
+  const dotState = new Float32Array(TOTAL);
+  for (const tierId in tierDotIndices) {
+    const phase = PHASE_TIMING.find(p => p.tier === tierId);
+    if (!phase) continue;
+    const tp = easeOut(getPhaseProgress(elapsed, phase));
+    const indices = tierDotIndices[tierId];
+    for (let j = 0; j < indices.length; j++) {
+      dotState[indices[j]] = getDotTransition(j, indices.length, tp);
+    }
+  }
+
+  for (let i = 0; i < TOTAL; i++) {
+    if (i >= grayCount) continue;
+    const row = ROWS - 1 - Math.floor(i / COLS);
+    const col = i % COLS;
+    const x = padding + col * cellSize;
+    const y = padding + row * cellSize;
+    const ds = dotState[i];
+
+    if (ds <= 0) {
+      ctx.fillStyle = TIER_COLORS.never_used;
+      ctx.beginPath(); ctx.roundRect(x, y, dotSize, dotSize, 1.5); ctx.fill();
+    } else {
+      const tc = dotColors[i];
+      if (ds < 1) {
+        ctx.fillStyle = TIER_COLORS.never_used;
+        ctx.beginPath(); ctx.roundRect(x, y, dotSize, dotSize, 1.5); ctx.fill();
+        const t = easeOut(ds);
+        ctx.globalAlpha = t;
+        ctx.shadowColor = tc; ctx.shadowBlur = 8 * (1 - t);
+        ctx.fillStyle = tc;
+        ctx.beginPath(); ctx.roundRect(x, y, dotSize, dotSize, 1.5); ctx.fill();
+        ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+      } else {
+        ctx.shadowColor = tc; ctx.shadowBlur = 3;
+        ctx.fillStyle = tc;
+        ctx.beginPath(); ctx.roundRect(x, y, dotSize, dotSize, 1.5); ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+  }
+
+  if (elapsed < ANIM_END) {
+    requestAnimationFrame(drawFrame);
+  } else {
+    animDone = true;
+    drawFinal();
+    // animation done
+  }
+}
+
+function drawFinal(hl) {
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = '#141414';
+  ctx.beginPath(); ctx.roundRect(0, 0, w, h, 6); ctx.fill();
+
+  for (let i = 0; i < TOTAL; i++) {
+    const row = ROWS - 1 - Math.floor(i / COLS);
+    const col = i % COLS;
+    const x = padding + col * cellSize;
+    const y = padding + row * cellSize;
+    const tier = tierData[dotTierIndex[i]];
+    const dimmed = hl && tier && tier.id !== hl;
+    let color = dotColors[i];
+
+    if (dimmed) {
+      if (tier.id === 'never_used') color = '#1a1a1a';
+      else ctx.globalAlpha = 0.25;
+    }
+
+    ctx.fillStyle = color;
+    if (!dimmed && color !== TIER_COLORS.never_used) {
+      ctx.shadowColor = color; ctx.shadowBlur = 3;
+    }
+    ctx.beginPath(); ctx.roundRect(x, y, dotSize, dotSize, 1.5); ctx.fill();
+    ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+  }
+}
+
+// === INTERACTIONS ===
+function getDotAt(cx, cy) {
+  const rect = canvas.getBoundingClientRect();
+  const s = w / rect.width;
+  const mx = (cx - rect.left) * s - padding;
+  const my = (cy - rect.top) * s - padding;
+  const col = Math.floor(mx / cellSize);
+  const row = Math.floor(my / cellSize);
+  if (col < 0 || col >= COLS || row < 0 || row >= ROWS) return -1;
+  return (ROWS - 1 - row) * COLS + col;
+}
+
+const TIP_LABELS = {
+  never_used: 'Never used AI',
+  free_chatbot: 'Asked AI a question',
+  paid_subscriber: 'Pays for AI',
+  coding_scaffold: 'Builds with AI'
+};
+
+function showDotTip(cx, cy, oy) {
+  const idx = getDotAt(cx, cy);
+  if (idx < 0 || idx >= TOTAL) { dotTip.style.opacity = '0'; return; }
+  const tier = tierData[dotTierIndex[idx]];
+  if (!tier) { dotTip.style.opacity = '0'; return; }
+  const color = TIER_COLORS[tier.id] || '#888';
+  const label = TIP_LABELS[tier.id] || tier.label;
+  dotTip.innerHTML = `<span style="display:inline-block;width:7px;height:7px;border-radius:1.5px;background:${color};margin-right:5px;vertical-align:middle"></span>${label} <span style="color:#555">\u00b7 ~${formatPop(tier.population, true)} (${tier.percent}%)</span>`;
+  dotTip.style.left = (cx + 14) + 'px';
+  dotTip.style.top = (cy + oy) + 'px';
+  dotTip.style.opacity = '1';
+}
+
+canvas.addEventListener('mousemove', e => { if (animDone) showDotTip(e.clientX, e.clientY, -28); });
+canvas.addEventListener('mouseleave', () => { dotTip.style.opacity = '0'; });
+canvas.addEventListener('touchstart', e => {
+  if (!animDone) return;
+  e.preventDefault();
+  showDotTip(e.touches[0].clientX, e.touches[0].clientY, -40);
+  setTimeout(() => { dotTip.style.opacity = '0'; }, 2000);
+}, { passive: false });
+
+// Annotation hover
+document.getElementById('annotations').addEventListener('mouseover', e => {
+  const a = e.target.closest('.annotation');
+  if (!a || !animDone) return;
+  drawFinal(a.dataset.tierId);
+  document.querySelectorAll('.annotation').forEach(el => {
+    el.style.opacity = el.dataset.tierId === a.dataset.tierId ? '1' : '0.5';
+  });
+});
+document.getElementById('annotations').addEventListener('mouseleave', () => {
+  if (!animDone) return;
+  drawFinal();
+  document.querySelectorAll('.annotation').forEach(el => { el.style.opacity = '1'; });
+});
+
+// Sources overlay
+document.getElementById('sources-trigger').addEventListener('click', () => {
+  document.getElementById('sources-overlay').classList.add('open');
+});
+document.getElementById('sources-close').addEventListener('click', () => {
+  document.getElementById('sources-overlay').classList.remove('open');
+});
+document.getElementById('sources-overlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
+});
+
+// Notify overlay
+document.getElementById('notify-trigger').addEventListener('click', () => {
+  document.getElementById('notify-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('notify-email').focus(), 300);
+});
+document.getElementById('notify-close').addEventListener('click', () => {
+  document.getElementById('notify-overlay').classList.remove('open');
+});
+document.getElementById('notify-overlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
+});
+document.getElementById('notify-submit').addEventListener('click', function() {
+  const email = document.getElementById('notify-email').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('notify-email').style.borderColor = '#f87171';
+    setTimeout(() => { document.getElementById('notify-email').style.borderColor = '#333'; }, 1500);
+    return;
+  }
+  const emails = JSON.parse(localStorage.getItem('notify-emails') || '[]');
+  emails.push({ email, date: new Date().toISOString() });
+  localStorage.setItem('notify-emails', JSON.stringify(emails));
+  this.textContent = "You're in";
+  this.classList.add('done');
+  document.getElementById('notify-email').disabled = true;
+  setTimeout(() => {
+    document.getElementById('notify-overlay').classList.remove('open');
+  }, 1200);
+});
+
+// Share to X
+document.getElementById('share-x').addEventListener('click', () => {
+  const text = encodeURIComponent('83% of humanity has never touched AI.\n\nThe other 17% is everyone you know.\n\nYou are early.');
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://x.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=550,height=420');
+});
+
+// Copy link
+document.getElementById('copy-btn').addEventListener('click', function() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    this.textContent = 'Copied';
+    this.classList.add('copied');
+    this.style.transform = 'scale(1.05)';
+    setTimeout(() => { this.style.transform = 'scale(1)'; }, 150);
+    setTimeout(() => { this.textContent = 'Copy link'; this.classList.remove('copied'); }, 2000);
+  });
+});
+
+// === LOAD ===
+fetch('data.json')
+  .then(r => r.json())
+  .then(data => { buildPage(data); requestAnimationFrame(drawFrame); })
+  .catch(() => {
+    document.getElementById('hero1').textContent = 'Could not load data.';
+    document.getElementById('hero2').textContent = '';
+  });
+</script>
+</body>
+</html>

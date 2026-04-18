@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "last_updated": "2026-04-18",
+    "world_population": 8141808945,
+    "population_source": "World Bank API",
+    "population_updated": "2026-04-18",
+    "total_dots": 2500
+  },
+  "sources": [
+    {
+      "id": "msft-ai-diffusion-h2-2025",
+      "tool": "All AI tools",
+      "tier_id": "free_chatbot",
+      "metric": "global_adoption_percent",
+      "value": 16.3,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "Microsoft AI Diffusion Report H2 2025",
+      "source_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Microsoft-AI-Diffusion-Report-2025-H2.pdf",
+      "source_date": "2026-01-08",
+      "notes": "16.3% of world population uses generative AI tools. Survey-based, cross-regional sampling."
+    },
+    {
+      "id": "openai-chatgpt-mau-2026",
+      "tool": "ChatGPT",
+      "tier_id": "free_chatbot",
+      "metric": "monthly_active_users",
+      "value": 1000000000,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "OpenAI announcement (Sam Altman)",
+      "source_url": "https://techcrunch.com/2025/10/06/sam-altman-says-chatgpt-has-hit-800m-weekly-active-users/",
+      "source_date": "2026-01-15",
+      "notes": "800M WAU Oct 2025, 1B+ MAU by Jan 2026. Includes free and paid users."
+    },
+    {
+      "id": "alphabet-gemini-mau-q4-2025",
+      "tool": "Google Gemini",
+      "tier_id": "free_chatbot",
+      "metric": "monthly_active_users",
+      "value": 750000000,
+      "credibility": 1,
+      "credibility_label": "SEC filing / earnings",
+      "source": "Alphabet Q4 2025 Earnings",
+      "source_url": "https://abc.xyz/investor/",
+      "source_date": "2026-02-04",
+      "notes": "750M MAU for Gemini app. 2B+ monthly users via AI Overviews (Google Search integration)."
+    },
+    {
+      "id": "meta-ai-mau-2025",
+      "tool": "Meta AI",
+      "tier_id": "free_chatbot",
+      "metric": "monthly_active_users",
+      "value": 1000000000,
+      "credibility": 1,
+      "credibility_label": "SEC filing / earnings",
+      "source": "Meta Platforms Earnings Call 2025",
+      "source_url": "https://investor.fb.com/",
+      "source_date": "2025-10-30",
+      "notes": "1B MAU across WhatsApp (63%), Instagram (27%), Facebook, Messenger."
+    },
+    {
+      "id": "openai-paid-subs-2025",
+      "tool": "ChatGPT Plus/Pro",
+      "tier_id": "paid_subscriber",
+      "metric": "paid_subscribers",
+      "value": 40000000,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "OpenAI revenue disclosures / company announcements",
+      "source_url": "https://www.businessofapps.com/data/chatgpt-statistics/",
+      "source_date": "2025-12-01",
+      "notes": "35-50M paid subs across Plus ($20/mo) and Pro ($200/mo). $8B ChatGPT revenue 2025."
+    },
+    {
+      "id": "alphabet-ai-premium-2025",
+      "tool": "Google One AI Premium",
+      "tier_id": "paid_subscriber",
+      "metric": "paid_subscribers",
+      "value": 5000000,
+      "credibility": 1,
+      "credibility_label": "SEC filing / earnings",
+      "source": "Alphabet Earnings / Google One 150M total subs",
+      "source_url": "https://abc.xyz/investor/",
+      "source_date": "2025-05-15",
+      "notes": "150M total Google One subs. 'Millions' on AI Premium tier ($19.99/mo). 5M is conservative estimate."
+    },
+    {
+      "id": "anthropic-claude-pro-2026",
+      "tool": "Claude Pro/Max",
+      "tier_id": "paid_subscriber",
+      "metric": "revenue",
+      "value": 1200000000,
+      "credibility": 3,
+      "credibility_label": "Institutional research",
+      "source": "Anthropic funding round disclosures / TechCrunch reporting",
+      "source_url": "https://techcrunch.com/2026/03/28/anthropics-claude-popularity-with-paying-consumers-is-skyrocketing/",
+      "source_date": "2026-03-28",
+      "notes": "$1.2B revenue from Claude Pro + Max. Paid subscriptions doubled in H1 2026."
+    },
+    {
+      "id": "msft-copilot-fy26-q2",
+      "tool": "GitHub Copilot",
+      "tier_id": "coding_scaffold",
+      "metric": "paid_subscribers",
+      "value": 4700000,
+      "credibility": 1,
+      "credibility_label": "SEC filing / earnings",
+      "source": "Microsoft FY2026 Q2 Earnings (10-Q)",
+      "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q2/press-release-webcast",
+      "source_date": "2026-01-28",
+      "notes": "4.7M individual paid subscribers (+75% YoY). 77K+ enterprise customers. 90% of Fortune 100."
+    },
+    {
+      "id": "github-copilot-alltime-2025",
+      "tool": "GitHub Copilot",
+      "tier_id": "coding_scaffold",
+      "metric": "all_time_users",
+      "value": 20000000,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "GitHub official announcement",
+      "source_url": "https://techcrunch.com/2025/07/30/github-copilot-crosses-20-million-all-time-users/",
+      "source_date": "2025-07-30",
+      "notes": "20M+ all-time users (includes free tier). 50K+ organizations."
+    },
+    {
+      "id": "cursor-2026-metrics",
+      "tool": "Cursor",
+      "tier_id": "coding_scaffold",
+      "metric": "monthly_active_users",
+      "value": 7000000,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "Cursor company announcements",
+      "source_url": "https://opsera.ai/blog/cursor-ai-adoption-trends-real-data-from-the-fastest-growing-coding-tool/",
+      "source_date": "2026-03-01",
+      "notes": "7M MAU, 1M DAU, 50K paying teams. ~1B lines of code generated/day."
+    },
+    {
+      "id": "jetbrains-ai-survey-2025",
+      "tool": "JetBrains AI Assistant",
+      "tier_id": "coding_scaffold",
+      "metric": "developer_percent",
+      "value": 11,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "JetBrains State of Developer Ecosystem 2025",
+      "source_url": "https://devecosystem-2025.jetbrains.com/artificial-intelligence",
+      "source_date": "2025-10-15",
+      "notes": "11% of developers use JetBrains AI Assistant. 85% of devs use AI tools overall. Survey of 11K+ respondents."
+    },
+    {
+      "id": "replit-2025-review",
+      "tool": "Replit",
+      "tier_id": "coding_scaffold",
+      "metric": "total_users",
+      "value": 40000000,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "Replit 2025 in Review (company blog)",
+      "source_url": "https://blog.replit.com/2025-replit-in-review",
+      "source_date": "2025-12-31",
+      "notes": "40M users by Q4 2025. $253M ARR. 750K+ businesses. 5M AI-generated apps."
+    },
+    {
+      "id": "tabnine-mau-2025",
+      "tool": "Tabnine",
+      "tier_id": "coding_scaffold",
+      "metric": "monthly_active_users",
+      "value": 1000000,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "Tabnine company claims",
+      "source_url": "https://www.tabnine.com/",
+      "source_date": "2025-06-01",
+      "notes": "1M+ MAU. Enterprise-focused. Exact paid subscriber count not disclosed."
+    },
+    {
+      "id": "windsurf-codeium-mau-2025",
+      "tool": "Windsurf (Codeium)",
+      "tier_id": "coding_scaffold",
+      "metric": "monthly_active_users",
+      "value": 1000000,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "Codeium/Windsurf company claims",
+      "source_url": "https://codeium.com/",
+      "source_date": "2025-09-01",
+      "notes": "1M+ MAU. Rebranded from Codeium to Windsurf IDE in 2025."
+    },
+    {
+      "id": "stackoverflow-dev-survey-2025",
+      "tool": "All AI coding tools",
+      "tier_id": "coding_scaffold",
+      "metric": "developer_adoption_percent",
+      "value": 84,
+      "credibility": 2,
+      "credibility_label": "Official announcement",
+      "source": "Stack Overflow 2025 Developer Survey",
+      "source_url": "https://survey.stackoverflow.co/2025/ai",
+      "source_date": "2025-12-29",
+      "notes": "84% of developers use or plan to use AI tools. 68% of AI users use GitHub Copilot. 49K+ respondents, 177 countries."
+    },
+    {
+      "id": "worldbank-pop-2024",
+      "tool": "N/A",
+      "tier_id": "never_used",
+      "metric": "world_population",
+      "value": 8141808945,
+      "credibility": 1,
+      "credibility_label": "SEC filing / earnings",
+      "source": "World Bank Open Data API (SP.POP.TOTL)",
+      "source_url": "https://data.worldbank.org/indicator/SP.POP.TOTL",
+      "source_date": "2026-04-18",
+      "notes": "2024 world population. Fetched via API, no auth required."
+    }
+  ],
+  "tiers": [
+    {
+      "id": "never_used",
+      "label": "Never used AI",
+      "percent": 83.37,
+      "population": 6788529737,
+      "color": "#555555",
+      "confidence": "high",
+      "derivation": "Remainder: 100% minus all other tiers. Backed by Microsoft AI Diffusion Report (16.3% global adoption).",
+      "source_ids": ["msft-ai-diffusion-h2-2025", "worldbank-pop-2024"]
+    },
+    {
+      "id": "free_chatbot",
+      "label": "Free chatbot user",
+      "percent": 16,
+      "population": 1302689431,
+      "color": "#22c55e",
+      "confidence": "high",
+      "derivation": "Microsoft AI Diffusion Report: 16.3% global AI adoption. Cross-referenced with ChatGPT 1B MAU + Gemini 750M MAU + Meta AI 1B MAU (heavy overlap).",
+      "source_ids": ["msft-ai-diffusion-h2-2025", "openai-chatgpt-mau-2026", "alphabet-gemini-mau-q4-2025", "meta-ai-mau-2025"]
+    },
+    {
+      "id": "paid_subscriber",
+      "label": "Pays $20/mo for AI",
+      "percent": 0.55,
+      "population": 44779949,
+      "color": "#f59e0b",
+      "confidence": "medium",
+      "derivation": "OpenAI ~40M paid + Google AI Premium ~5M + others ~5M. Deduplicated estimate ~45M. Some users pay for multiple services.",
+      "source_ids": ["openai-paid-subs-2025", "alphabet-ai-premium-2025", "anthropic-claude-pro-2026"]
+    },
+    {
+      "id": "coding_scaffold",
+      "label": "Uses AI coding tools",
+      "percent": 0.08,
+      "population": 6513447,
+      "color": "#ef4444",
+      "confidence": "medium",
+      "derivation": "GitHub Copilot 4.7M paid + Cursor ~1M paid + JetBrains AI ~1.5M + Tabnine/Windsurf ~500K. After deduplication (SO survey: 68% overlap with Copilot): ~5-7M unique paid users.",
+      "source_ids": ["msft-copilot-fy26-q2", "cursor-2026-metrics", "jetbrains-ai-survey-2025", "replit-2025-review", "tabnine-mau-2025", "windsurf-codeium-mau-2025", "stackoverflow-dev-survey-2025", "github-copilot-alltime-2025"]
+    }
+  ],
+  "snapshots": [
+    {
+      "date": "2026-04-18",
+      "world_population": 8141808945,
+      "tiers": {
+        "never_used": 83.37,
+        "free_chatbot": 16,
+        "paid_subscriber": 0.55,
+        "coding_scaffold": 0.08
+      }
+    }
+  ]
+}

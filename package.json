@@ -1,0 +1,11 @@
+{
+  "name": "ai-adoption-viz",
+  "version": "2.0.0",
+  "scripts": {
+    "update": "npx tsx update.ts",
+    "set-tier": "npx tsx set-tier.ts",
+    "validate": "npx tsx validate.ts",
+    "audit": "npx tsx audit.ts",
+    "serve": "npx serve ."
+  }
+}
